@@ -54,11 +54,10 @@ func _turning_cat():
 	anim.play("turning_cat")
 	await anim.animation_finished
 	if t and t.is_running(): t.kill()
-	t = default_tween()
-	t.tween_property(anim, "scale", Vector2.ONE, 2)
-	t.tween_property(anim, "position", Vector2(624, 840), 2)
+	t = default_tween().set_trans(Tween.TRANS_CUBIC)
+	t.tween_property(anim, "scale", Vector2.ONE, 1.7)
+	t.tween_property(anim, "position", Vector2(624, 840), 1.7)
 	await t.finished
-	await get_tree().create_timer(0.2).timeout
 	# Debt text final
 	if t and t.is_running(): t.kill()
 	t = default_tween()
