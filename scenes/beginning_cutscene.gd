@@ -19,10 +19,6 @@ func start_anim():
 		_t.par.offset_transform_position = f
 		t.tween_property(_t.par, "offset_transform_position", Vector2.ZERO, 3.)
 	
-	t.tween_property($test as TextureRect, "rotation_degrees", 360, 5.0)
-	t.set_parallel(false)
-	t.tween_callback(end_cutscene)
-
 func end_anim():
 	if t != null and t.is_running(): t.kill()
 	t = default_tween()
