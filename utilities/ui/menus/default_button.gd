@@ -22,7 +22,7 @@ func _hover() -> void:
 	t.tween_property(self, "offset_transform_rotation", 0.1, 0.2)
 	t.tween_property(self, "offset_transform_rotation", -0.1, 0.2).set_delay(0.2)
 	t.tween_property(self, "offset_transform_rotation", 0.0, 0.2).set_delay(0.4)
-	
+
 func _unhover() -> void:
 	if t and t.is_running(): t.kill()
 	t = create_tween().set_ease(Tween.EASE_OUT)
