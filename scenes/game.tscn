@@ -24,6 +24,15 @@ metadata/_custom_type_script = "uid://e0s6oeo4pcwr"
 [node name="TowerManager" type="Node2D" parent="." unique_id=273477013]
 script = ExtResource("4_lbhrr")
 
+[node name="Placeable" type="Node2D" parent="TowerManager" unique_id=625070807]
+
+[node name="Area2D" type="Area2D" parent="TowerManager/Placeable" unique_id=577894819]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TowerManager/Placeable/Area2D" unique_id=712845828]
+polygon = PackedVector2Array(19, 165, 655, 38, 2, -3)
+
 [node name="UI" type="CanvasLayer" parent="." unique_id=659363911]
 script = ExtResource("5_p57ef")
 
@@ -46,12 +55,12 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 2
 
-[node name="DefaultButton" parent="UI/PlaceTowerUI/GridContainer" unique_id=418678843 instance=ExtResource("5_iywne")]
+[node name="Tower" parent="UI/PlaceTowerUI/GridContainer" unique_id=418678843 instance=ExtResource("5_iywne")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Text" parent="UI/PlaceTowerUI/GridContainer/DefaultButton" index="1" unique_id=1745176857]
+[node name="Text" parent="UI/PlaceTowerUI/GridContainer/Tower" index="1" unique_id=1745176857]
 text = "Tower"
 
 [node name="DefaultButton2" parent="UI/PlaceTowerUI/GridContainer" unique_id=1483575337 instance=ExtResource("5_iywne")]
@@ -69,4 +78,4 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[editable path="UI/PlaceTowerUI/GridContainer/DefaultButton"]
+[editable path="UI/PlaceTowerUI/GridContainer/Tower"]

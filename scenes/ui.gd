@@ -1,5 +1,6 @@
 extends CanvasLayer
 class_name UI
+const TOWER_SCENE = preload("res://scenes/entities/tower.tscn")
 @onready var place_tower_ui: Control = $PlaceTowerUI
 @onready var tower_button_cont: GridContainer = $PlaceTowerUI/GridContainer
 var map_ref : Map
@@ -13,10 +14,10 @@ func _ready() -> void:
 		button.pressed.connect(_on_button_pressed.bind(button.name))
 
 func _on_button_pressed(_name:String):
-	match _name:
+	match _name.to_lower():
 		# Temporary names for buttons
-		"Tower":
-			Global.selected_tower = Tower.new()
+		"tower":
+			Global.selected_tower = TOWER_SCENE.instantiate()
 
 func _on_map_state_changed(new_state:Global.MapStates) -> void:
 	match new_state:
