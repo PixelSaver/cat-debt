@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lfu4lr8mjyp5"
-path="res://.godot/imported/frame_2.png-637d5aff3922b68a15b05919be80949c.ctex"
+uid="uid://dvv487bqceewp"
+path="res://.godot/imported/jackpawt.png-1aed0351e5d58f35cb5f38db96366bf7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/scene_2_cat_turning/frame_2.png"
-dest_files=["res://.godot/imported/frame_2.png-637d5aff3922b68a15b05919be80949c.ctex"]
+source_file="res://assets/scene_1_cat_slotting/jackpawt.png"
+dest_files=["res://.godot/imported/jackpawt.png-1aed0351e5d58f35cb5f38db96366bf7.ctex"]
 
 [params]
 
