@@ -13,6 +13,8 @@ func end_cutscene() -> void:
 	Global.menu_manager.transition_to_scene(GAME)
 
 func start_anim():
+	anim.animation = "cut_scene"
+	anim.position = Vector2(576, 324)
 	debt_text.modulate.a = 0.0
 	anim.scale = Vector2.ZERO
 	await get_tree().create_timer(1.0).timeout
@@ -21,6 +23,8 @@ func start_anim():
 	await t.finished
 	await get_tree().create_timer(0.5).timeout
 	await _anim_slots()
+	await get_tree().create_timer(1.0).timeout
+	await _turning_cat()
 
 func _anim_slots():
 	anim.play("cut_scene")
