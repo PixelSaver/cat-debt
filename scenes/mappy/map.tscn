@@ -15,6 +15,7 @@ point_count = 10
 script = ExtResource("1_l8quq")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=149770163]
+visible = false
 modulate = Color(4.551715, 0, 2.6200616, 1)
 position = Vector2(575.5, 327)
 scale = Vector2(8.9609375, 5.140625)
@@ -28,6 +29,7 @@ script = ExtResource("2_l8quq")
 enemy_scene = ExtResource("3_okf3d")
 
 [node name="Enemy" parent="Path2D" unique_id=358111541 instance=ExtResource("3_okf3d")]
+visible = false
 position = Vector2(1149, 190)
 rotation = 0.8312376
 scale = Vector2(0.99999994, 1)
