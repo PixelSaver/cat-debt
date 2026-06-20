@@ -25,8 +25,8 @@ frame_progress = 1.0
 [node name="DebtText" type="RichTextLabel" parent="." unique_id=307731193]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.255
-anchor_top = 0.2
+anchor_left = 0.24
+anchor_top = 0.1
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -34,5 +34,20 @@ grow_vertical = 2
 offset_transform_enabled = true
 bbcode_enabled = true
 text = "[color=red]-$1000"
+fit_content = true
+scroll_active = false
+
+[node name="DebtText2" type="RichTextLabel" parent="." unique_id=822490680]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.24
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+bbcode_enabled = true
+text = "[color=red][font_size=130]-$1000"
 fit_content = true
 scroll_active = false

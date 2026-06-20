@@ -3,6 +3,7 @@ class_name BeginningCutscene
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var debt_text: RichTextLabel = $DebtText
+@onready var debt_text_2: RichTextLabel = $DebtText2
 const GAME = preload("res://scenes/game.tscn")
 var ts : Array[Tweenable]
 var t : Tween
@@ -16,6 +17,7 @@ func start_anim():
 	anim.animation = "cut_scene"
 	anim.position = Vector2(576, 324)
 	debt_text.modulate.a = 0.0
+	debt_text_2.modulate.a = 0.0
 	anim.scale = Vector2.ZERO
 	await get_tree().create_timer(1.0).timeout
 	t = default_tween().set_ease(Tween.EASE_IN)
@@ -25,6 +27,7 @@ func start_anim():
 	await _anim_slots()
 	await get_tree().create_timer(1.0).timeout
 	await _turning_cat()
+	end_anim()
 
 func _anim_slots():
 	anim.play("cut_scene")
@@ -54,7 +57,18 @@ func _turning_cat():
 	t = default_tween()
 	t.tween_property(anim, "scale", Vector2.ONE, 2)
 	t.tween_property(anim, "position", Vector2(624, 840), 2)
-	pass
+	await t.finished
+	await get_tree().create_timer(0.2).timeout
+	# Debt text final
+	if t and t.is_running(): t.kill()
+	t = default_tween()
+	debt_text_2.offset_transform_position.y = 0.0
+	debt_text_2.modulate.a = 1.0
+	t.tween_property(debt_text_2, "offset_transform_position:y", -50., 0.7)
+	t.tween_property(debt_text_2, "modulate:a", 0.0, 0.3).set_delay(0.4)
+	await t.finished
+	await get_tree().create_timer(1.0).timeout
+	
 
 func end_anim():
 	pass
