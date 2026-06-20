@@ -2,6 +2,7 @@ extends PixelMenu
 class_name BeginningCutscene
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var odds_text: RichTextLabel = $OddsText
 @onready var debt_text: RichTextLabel = $DebtText
 @onready var debt_text_2: RichTextLabel = $DebtText2
 const GAME = preload("res://scenes/game.tscn")
@@ -15,7 +16,10 @@ func end_cutscene() -> void:
 
 func start_anim():
 	anim.animation = "cut_scene"
-	anim.position = Vector2(576, 324)
+	anim.position = Vector2(520, 350)
+	odds_text.modulate.a = 0.0
+	odds_text.offset_transform_enabled = true
+	odds_text.offset_transform_position = Vector2.ZERO
 	debt_text.modulate.a = 0.0
 	debt_text_2.modulate.a = 0.0
 	anim.scale = Vector2.ZERO
@@ -38,7 +42,11 @@ func _anim_slots():
 	debt_text.modulate.a = 1.0
 	t.tween_property(debt_text, "offset_transform_position:y", -50., 0.7)
 	t.tween_property(debt_text, "modulate:a", 0.0, 0.3).set_delay(0.4)
-	await get_tree().create_timer(1.5).timeout
+	await t.finished
+	t = default_tween()
+	t.tween_property(odds_text, "modulate:a", 1., 0.7)
+	t.tween_property(odds_text, "offset_transform_position:x", 150., 0.7)
+	await t.finished
 	anim.play("cut_scene")
 	await anim.animation_finished
 	if t and t.is_running(): t.kill()
@@ -47,6 +55,7 @@ func _anim_slots():
 	debt_text.modulate.a = 1.0
 	t.tween_property(debt_text, "offset_transform_position:y", -50., 0.7)
 	t.tween_property(debt_text, "modulate:a", 0.0, 0.3).set_delay(0.4)
+	t.tween_property(odds_text, "modulate:a", 0.0, 0.3).set_delay(0.4)
 
 func _turning_cat():
 	anim.scale = Vector2.ONE * 0.3
@@ -67,7 +76,9 @@ func _turning_cat():
 	t.tween_property(debt_text_2, "modulate:a", 0.0, 0.3).set_delay(0.4)
 	await t.finished
 	await get_tree().create_timer(1.0).timeout
-	## Add the odds, end the scene
 
 func end_anim():
-	pass
+	if t and t.is_running(): t.kill()
+	t = default_tween()
+	t.tween_property(self, "modulate:a", 0.0, 0.7)
+	
