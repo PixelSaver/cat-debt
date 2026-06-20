@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c0u7qfxc13dqh" path="res://scenes/start_menu.gd" id="2_h61rw"]
 [ext_resource type="PackedScene" uid="uid://bk1srw633oqx8" path="res://utilities/ui/menus/default_button.tscn" id="3_fcv5n"]
 
-[node name="StartMenu" type="Control" unique_id=1864635507]
+[node name="StartMenu" type="Control" unique_id=1864635507 node_paths=PackedStringArray("buttons")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_m7x51")
 script = ExtResource("2_h61rw")
+buttons = [NodePath("VBoxContainer/Play")]
 metadata/_custom_type_script = "uid://e0s6oeo4pcwr"
 
 [node name="BG" type="ColorRect" parent="." unique_id=134580661]
@@ -46,13 +47,15 @@ vertical_alignment = 1
 layout_mode = 2
 mouse_filter = 1
 
-[node name="DefaultButton" parent="VBoxContainer" unique_id=418678843 instance=ExtResource("3_fcv5n")]
+[node name="Play" parent="VBoxContainer" unique_id=418678843 instance=ExtResource("3_fcv5n")]
 layout_mode = 2
 
-[node name="Panel" parent="VBoxContainer/DefaultButton" index="0" unique_id=1586527438]
+[node name="Panel" parent="VBoxContainer/Play" index="0" unique_id=1586527438]
 mouse_filter = 1
 
-[node name="Text" parent="VBoxContainer/DefaultButton" index="1" unique_id=1745176857]
+[node name="Text" parent="VBoxContainer/Play" index="1" unique_id=1745176857]
 mouse_filter = 1
+text = "Play
+"
 
-[editable path="VBoxContainer/DefaultButton"]
+[editable path="VBoxContainer/Play"]
