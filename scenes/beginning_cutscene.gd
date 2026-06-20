@@ -41,8 +41,5 @@ func _anim_slots():
 	t.tween_property(debt_text, "offset_transform_position:y", -50., 0.7)
 	t.tween_property(debt_text, "modulate:a", 0.0, 0.3).set_delay(0.4)
 	
-	
-	
-func end_anim():
-	pass
+
 	

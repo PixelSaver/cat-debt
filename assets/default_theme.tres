@@ -1,5 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://djxds56cenfds"]
 
+[ext_resource type="FontFile" uid="uid://cojtsxp45s3wp" path="res://assets/folder/Sprinklescolors-njrJ.ttf" id="1_qew4h"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vkpim"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o54fn"]
@@ -20,6 +22,7 @@ border_width_bottom = 5
 border_color = Color(0, 0, 0, 1)
 
 [resource]
+default_font = ExtResource("1_qew4h")
 default_font_size = 50
 Button/styles/disabled = SubResource("StyleBoxEmpty_vkpim")
 Button/styles/focus = SubResource("StyleBoxEmpty_o54fn")
