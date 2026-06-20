@@ -67,7 +67,7 @@ func _turning_cat():
 	t.tween_property(debt_text_2, "modulate:a", 0.0, 0.3).set_delay(0.4)
 	await t.finished
 	await get_tree().create_timer(1.0).timeout
-	
+	## Add the odds, end the scene
 
 func end_anim():
 	pass
