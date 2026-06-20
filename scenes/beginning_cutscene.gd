@@ -1,5 +1,6 @@
 extends PixelMenu
 class_name BeginningCutscene
+const GAME_SCENE = preload("res://scenes/game.tscn")
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var odds_text: RichTextLabel = $OddsText
@@ -31,7 +32,7 @@ func start_anim():
 	await _anim_slots()
 	await get_tree().create_timer(1.0).timeout
 	await _turning_cat()
-	end_anim()
+	Global.menu_manager.transition_to_scene(GAME_SCENE)
 
 func _anim_slots():
 	anim.play("cut_scene")
