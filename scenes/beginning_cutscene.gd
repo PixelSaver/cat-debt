@@ -11,6 +11,7 @@ func end_cutscene() -> void:
 	Global.menu_manager.transition_to_scene(GAME)
 
 func start_anim():
+	await get_tree().create_timer(1.0).timeout
 	ts = get_all_tweenables(self)
 	if t != null and t.is_running(): t.kill()
 	t = default_tween()
