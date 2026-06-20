@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dfpb1ipm31d1k"]
 
+[ext_resource type="Theme" uid="uid://djxds56cenfds" path="res://assets/default_theme.tres" id="1_o7wu3"]
 [ext_resource type="Script" uid="uid://cxcy6i058sv3l" path="res://scenes/beginning_cutscene.gd" id="1_va6ap"]
 [ext_resource type="Texture2D" uid="uid://b2oese3sm7bus" path="res://assets/placeholders/icon.svg" id="2_krvce"]
 
@@ -10,14 +11,27 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_o7wu3")
 script = ExtResource("1_va6ap")
 metadata/_custom_type_script = "uid://e0s6oeo4pcwr"
 
-[node name="test" type="TextureRect" parent="." unique_id=1109300068]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=287460350]
+position = Vector2(605, 418)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_0ixk7")
+animation = &"cut_scene"
+
+[node name="DebtText" type="RichTextLabel" parent="." unique_id=307731193]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_left = 0.255
+anchor_top = 0.2
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_krvce")
+offset_transform_enabled = true
+bbcode_enabled = true
+text = "[color=red]-$1000"
+fit_content = true
+scroll_active = false

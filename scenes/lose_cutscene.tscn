@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://b0deg5aeh3k61"]
+
+[ext_resource type="Texture2D" uid="uid://b1u7li77mxxjn" path="res://assets/scene_1_cat_slotting/1.png" id="1_7u41m"]
+[ext_resource type="Script" uid="uid://dy04d26r3num8" path="res://scenes/lose_cutscene.gd" id="1_u213a"]
+[ext_resource type="Texture2D" uid="uid://d3vj7nt3hvygf" path="res://assets/scene_1_cat_slotting/2.png" id="2_u213a"]
+[ext_resource type="Texture2D" uid="uid://d11aingrhck66" path="res://assets/scene_1_cat_slotting/3.png" id="3_chg0q"]
+[ext_resource type="Texture2D" uid="uid://dwmpylx2r5y3r" path="res://assets/scene_1_cat_slotting/4.png" id="4_yvxy1"]
+[ext_resource type="Texture2D" uid="uid://cx5ycq3mdkrjr" path="res://assets/scene_1_cat_slotting/5.png" id="5_sxmjl"]
+[ext_resource type="Texture2D" uid="uid://xr8koma4kisi" path="res://assets/scene_1_cat_slotting/6.png" id="6_uqqre"]
+[ext_resource type="Texture2D" uid="uid://co1v1g3wa2142" path="res://assets/scene_1_cat_slotting/7.png" id="7_bxn1l"]
+[ext_resource type="Texture2D" uid="uid://cme5nqdb4t1k6" path="res://assets/scene_1_cat_slotting/8.png" id="8_wusvu"]
+[ext_resource type="Texture2D" uid="uid://cnqbgs7dn2kff" path="res://assets/scene_1_cat_slotting/9.png" id="9_couuj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_beg7u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7u41m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_u213a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_chg0q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yvxy1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sxmjl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uqqre")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bxn1l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_u213a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_chg0q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yvxy1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sxmjl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uqqre")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bxn1l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wusvu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_couuj")
+}],
+"loop": 0,
+"name": &"cut_scene",
+"speed": 14.0
+}]
+
+[node name="LoseScene" type="Control" unique_id=1867390076]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u213a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=91319889]
+position = Vector2(812, 373)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_beg7u")
+animation = &"cut_scene"

@@ -8,13 +8,11 @@ var ts : Array[Tweenable]
 var t : Tween
 
 func _ready() -> void:
+	self.offset_transform_enabled = true
 	for button in buttons:
 		button.pressed.connect(Callable(_on_button_pressed)\
 			.bind(button.name))
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("w"):
-		start_anim()
 
 func _on_button_pressed(button_name:String) -> void:
 	match button_name.to_lower():
@@ -29,4 +27,7 @@ func start_anim():
 	pass
 
 func end_anim():
-	pass
+	if t and t.is_running(): t.kill()
+	t = default_tween().set_ease(Tween.EASE_OUT)
+	t.tween_property(self, "offset_transform_scale", Vector2.ONE * 10., 1.0)
+	t.tween_property(self, "modulate:a", 0.0, 1.0)

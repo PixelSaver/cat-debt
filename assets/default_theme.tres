@@ -1,5 +1,17 @@
 [gd_resource type="Theme" format=3 uid="uid://djxds56cenfds"]
 
+[ext_resource type="FontFile" uid="uid://cojtsxp45s3wp" path="res://assets/folder/Sprinklescolors-njrJ.ttf" id="1_qew4h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vkpim"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o54fn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qew4h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_81pgw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cs2sx"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7x51"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
@@ -10,6 +22,12 @@ border_width_bottom = 5
 border_color = Color(0, 0, 0, 1)
 
 [resource]
-default_font_size = 30
+default_font = ExtResource("1_qew4h")
+default_font_size = 50
+Button/styles/disabled = SubResource("StyleBoxEmpty_vkpim")
+Button/styles/focus = SubResource("StyleBoxEmpty_o54fn")
+Button/styles/hover = SubResource("StyleBoxEmpty_qew4h")
+Button/styles/normal = SubResource("StyleBoxEmpty_81pgw")
+Button/styles/pressed = SubResource("StyleBoxEmpty_cs2sx")
 Panel/styles/panel = SubResource("StyleBoxFlat_m7x51")
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
