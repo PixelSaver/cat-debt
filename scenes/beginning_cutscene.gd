@@ -13,6 +13,7 @@ func end_cutscene() -> void:
 	Global.menu_manager.transition_to_scene(GAME)
 
 func start_anim():
+	Global.state = Global.States.BEGINNING_CUTSCENE
 	debt_text.modulate.a = 0.0
 	anim.scale = Vector2.ZERO
 	await get_tree().create_timer(1.0).timeout
