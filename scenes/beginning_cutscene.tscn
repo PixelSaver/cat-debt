@@ -105,4 +105,3 @@ texture = ExtResource("7_5ruw7")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1996062019]
 stream = SubResource("AudioStreamMP3_j3pel")
-bus = &"SFX"

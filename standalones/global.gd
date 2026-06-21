@@ -18,8 +18,10 @@ var map : Map
 signal map_state_changed(new_state:States)
 enum MapStates {
 	PLAY,
-	DELETE,
+	PLACE,
+	UPGRADE,
 	WHEEL,
+	TUTORIAL,
 }
 var map_state : MapStates = MapStates.PLAY :
 	set(val):
