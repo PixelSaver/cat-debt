@@ -15,7 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_m7x51")
 script = ExtResource("2_h61rw")
-buttons = [NodePath("VBoxContainer/Control/VBoxContainer/Play")]
+buttons = [NodePath("VBoxContainer/Control/VBoxContainer/Play"), NodePath("VBoxContainer/Control/VBoxContainer/Quit")]
 gary_meow = ExtResource("3_h61rw")
 miau = ExtResource("4_fcv5n")
 metadata/_custom_type_script = "uid://e0s6oeo4pcwr"
@@ -31,6 +31,22 @@ grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
 text = "z"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="QuitText" type="RichTextLabel" parent="." unique_id=587584897]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -100.0
+offset_bottom = -39.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]f CARD DECLINED o"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 2
@@ -123,7 +139,6 @@ dir = Vector2(0, 0)
 speed = 0.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1556415708]
-bus = &"SFX"
 
 [editable path="VBoxContainer/Control/VBoxContainer/Play"]
 [editable path="VBoxContainer/Control/VBoxContainer/Quit"]

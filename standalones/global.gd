@@ -20,6 +20,8 @@ enum MapStates {
 	PLAY,
 	PLACE,
 	UPGRADE,
+	WHEEL,
+	TUTORIAL,
 }
 var map_state : MapStates = MapStates.PLAY :
 	set(val):
