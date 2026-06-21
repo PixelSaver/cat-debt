@@ -14,6 +14,7 @@ var progression := 0.0
 
 
 func _ready() -> void:
+	Global.register_enemy(self)
 	self.set_collision_layer_value(1, false)
 	self.set_collision_layer_value(2, true)
 	self.set_collision_mask_value(1, false)

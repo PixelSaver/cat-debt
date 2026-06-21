@@ -14,7 +14,7 @@ static var stats := {
 		"damage": 1.0,
 		"attack_cooldown": 0.1,
 		"bullet_speed": 10.,
-		"range": 100.0,
+		"range": 200.0,
 		#"icon" : preload,
 	},
 	
@@ -22,7 +22,7 @@ static var stats := {
 		"damage": 1.0,
 		"attack_cooldown": 0.1,
 		"bullet_speed": 10.,
-		"range": 100.0,
+		"range": 200.0,
 		#"icon" : preload,
 	},
 	
@@ -30,7 +30,7 @@ static var stats := {
 		"damage": 1.0,
 		"attack_cooldown": 0.1,
 		"bullet_speed": 10.,
-		"range": 100.0,
+		"range": 200.0,
 		#"icon" : preload,
 	}
 	

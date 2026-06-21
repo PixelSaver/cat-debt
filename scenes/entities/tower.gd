@@ -1,7 +1,6 @@
 extends RigidBody2D
 class_name Tower
 const BULLET = preload("res://scenes/entities/bullet.tscn")
-@onready var range_area: Area2D = $RangeArea
 
 var placeable := false
 var placed := false
@@ -13,12 +12,11 @@ var cumulative_timer := 0.0
 
 func _ready() -> void:
 	self.lock_rotation = true
-	range_area.body_entered.connect(_on_range_entered)
-	range_area.body_exited.connect(_on_range_exited)
 func _get_stats() -> Dictionary:
 	return INFO.get(type)
 
 func _process(delta: float) -> void:
+	_update_range()
 	if not placed:
 		if self.placeable: sprite.modulate.a = 1.0
 		else: sprite.modulate.a = 0.7
@@ -32,7 +30,6 @@ func _process(delta: float) -> void:
 				cumulative_timer -= cooldown
 				var inst = BULLET.instantiate() as Bullet
 				add_child(inst)
-				await get_tree().process_frame
 				inst.bullet_init(
 					enemies_in_range[0], 
 					stats["bullet_speed"], 
@@ -42,17 +39,16 @@ func _process(delta: float) -> void:
 			#cumulative_timer = 0.0
 			pass
 
-func _on_range_entered(body:Node2D):
-	var enemy = body as Enemy
-	if not enemy: return
-	enemies_in_range.append(enemy)
-	enemy.tree_exited.connect(func():
-		enemies_in_range.erase(enemy)
-	)
-func _on_range_exited(body:Node2D):
-	var enemy = body as Enemy
-	if not enemy: return
-	enemies_in_range.erase(enemy)
+func _update_range() -> void:
+	enemies_in_range.clear()
+	if Global.all_enemies.size() == 0:
+		return
+	var stats = _get_stats()
+	var range: float = stats["range"]
+	for e in Global.all_enemies:
+		if e.global_position.distance_to(self.global_position) <= range:
+			if enemies_in_range.find(e) != -1: continue
+			enemies_in_range.append(e)
 
 func register_areas(arr:Array[Area2D]):
 	for area in arr:
