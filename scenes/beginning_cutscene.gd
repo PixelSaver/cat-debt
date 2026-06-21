@@ -19,9 +19,6 @@ const GAME = preload("res://scenes/game.tscn")
 var ts : Array[Tweenable]
 var t : Tween
 
-func _ready():
-	start_anim()
-
 ## Call when the cutscene is finished and go to the game
 func end_cutscene() -> void:
 	print("To game")
