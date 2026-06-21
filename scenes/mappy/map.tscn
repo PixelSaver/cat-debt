@@ -14,13 +14,6 @@ point_count = 10
 [node name="map" type="Node2D" unique_id=807509426]
 script = ExtResource("1_l8quq")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=149770163]
-visible = false
-modulate = Color(4.551715, 0, 2.6200616, 1)
-position = Vector2(575.5, 327)
-scale = Vector2(8.9609375, 5.140625)
-texture = ExtResource("1_hwkrt")
-
 [node name="Path2D" type="Path2D" parent="." unique_id=160292919]
 position = Vector2(-19.239075, 0)
 scale = Vector2(1.0167441, 1)
