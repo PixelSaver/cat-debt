@@ -86,7 +86,7 @@ script = ExtResource("2_67neu")
 metadata/_custom_type_script = "uid://fj7ykktocnh6"
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1045301312]
-position = Vector2(1.9073486e-06, 3.0000005)
+position = Vector2(1.1368684e-13, 3)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_43hlm")
 animation = &"mosquito"
