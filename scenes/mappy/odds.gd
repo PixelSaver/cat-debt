@@ -15,8 +15,12 @@ func get_odds():
 	return odds
 	
 func set_odds(amount: int):
-	odds = amount
+	odds = clampi(amount, -100, 100)
 	self.text = "[color=red][font top=-30]" + str(odds) + "j WIN"
+	if odds == -50:
+		SignalBus.lose.emit()
+	elif odds == 100:
+		SignalBus.win.emit()
 
 func inc_odds(amount: int):
 	self.scale = Vector2.ONE
@@ -24,7 +28,8 @@ func inc_odds(amount: int):
 	t = create_tween().set_ease(Tween.EASE_OUT)
 	t.set_parallel(true).set_trans(Tween.TRANS_QUINT)
 	t.tween_property(self, "scale", Vector2.ONE * 0.05, 0.2)
-	t.tween_property(self, "offset_transform_position", Vector2(-50, -50), 0.2)
+	#TODO Green text when winning
+	t.tween_property(self, "offset_transform_position", Vector2(-5, -5), 0.2)
 	await t.finished
 	t = create_tween().set_ease(Tween.EASE_OUT)
 	t.set_parallel(true).set_trans(Tween.TRANS_QUINT)

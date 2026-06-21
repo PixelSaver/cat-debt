@@ -26,8 +26,16 @@ func _ready() -> void:
 	SignalBus.killed_enemy.connect(func(drop_price:int):
 		self.purrency += abs(drop_price)
 	)
+	SignalBus.win.connect(_on_win)
+	SignalBus.lose.connect(_on_lose)
 	#if OS.is_debug_build():
 		#add_towers_to_place(2)
+
+func _on_win() -> void:
+	pass
+
+func _on_lose() -> void:
+	pass
 
 func pay(amount:int) -> void:
 	#TODO deferred for race conditions?
