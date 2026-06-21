@@ -5,6 +5,8 @@ extends Node2D
 @onready var that_word = $spikey/words/that
 @onready var wheel_word = $spikey/words/wheel
 @onready var wheelfr = $gambler/wheelfr
+@onready var result_panel = $ResultInfo/ResultPanel
+@onready var result_label = $ResultInfo/ResultLabel
 
 var slots = [
 	{"name": "+1", "start": 0.0, "end": 72.0*1},
@@ -18,6 +20,7 @@ var slots = [
 func _ready() -> void:
 	$gambler.hide()
 	$spikey.hide()
+	$ResultInfo.hide()
 	await babang()
 	spin_to_win()
 	
@@ -82,8 +85,21 @@ func spin_to_win():
 
 	await tween.finished
 
-	print("landed on: ", get_landed_slot())
+	var result = get_landed_slot()
+	print("landed on: ", result)
 	
+	match result:
+		"+2":
+			show_result("YOU WON TWO TOWERS!")
+		"+1":
+			show_result("YOU WONE ONE TOWER!")
+		"nothing":
+			show_result("YOU WON ABSOLUTELY NOTHING!")
+		"-1":
+			show_result("YOU GET TO LOSE A TOWER!")
+
+			SignalBus.lose_tower.emit()
+
 
 
 func get_landed_slot() -> String:
@@ -92,6 +108,26 @@ func get_landed_slot() -> String:
 	for slot in slots:
 		if angle >= slot["start"] and angle < slot["end"]:
 			return slot["name"]
-			
 
 	return "unknown"
+	
+func show_result(text: String):
+	$ResultInfo.show()
+	result_label.text = text
+	
+
+	result_panel.show()
+	result_label.show()
+	result_panel.scale = Vector2.ZERO
+	result_label.modulate.a = 0.0
+	
+	var tween = create_tween()
+
+	
+	tween.parallel().tween_property(wheelfr, "scale", Vector2(1.4, 0.6), 0.08)
+	tween.chain().tween_property(wheelfr, "scale", Vector2(0.9, 1.1), 0.06)
+	tween.chain().tween_property(wheelfr, "scale", Vector2.ZERO, 0.08)
+
+	tween.parallel().tween_property(result_panel,"scale",Vector2.ONE,0.25).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.parallel().tween_property(result_label,"modulate:a",1.0,0.15)
+	
