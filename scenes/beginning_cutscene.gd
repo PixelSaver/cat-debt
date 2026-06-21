@@ -10,10 +10,12 @@ enum States {
 @onready var debt_text: RichTextLabel = $DebtText
 @onready var debt_text_2: RichTextLabel = $DebtText2
 @onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var jackpawt: Sprite2D = $Sprite2D
 
 @export var slot_sfx: AudioStreamMP3
 @export var vine_boom: AudioStreamMP3
 @export var lever_sfx: AudioStreamMP3
+@export var angel: AudioStreamMP3
 
 var cutscene_state : States = States.START
 const GAME = preload("res://scenes/game.tscn")
@@ -21,6 +23,7 @@ var ts : Array[Tweenable]
 var t : Tween
 
 func _ready():
+	jackpawt.visible = true
 	start_anim()
 
 ## Call when the cutscene is finished and go to the game
@@ -45,9 +48,11 @@ func start_anim():
 	debt_text.modulate.a = 0.0
 	debt_text_2.modulate.a = 0.0
 	anim.scale = Vector2.ZERO
+	jackpawt.scale = Vector2.ZERO
 	await get_tree().create_timer(1.0).timeout
 	t = default_tween().set_ease(Tween.EASE_IN)
 	t.tween_property(anim, "scale", Vector2.ONE * 0.4, 1.0)
+	t.tween_property(jackpawt, "scale", Vector2.ONE * 0.4, 1.0)
 	await t.finished
 	await get_tree().create_timer(0.5).timeout
 	await _anim_slots()
@@ -91,8 +96,12 @@ func _turning_cat():
 	self.cutscene_state = States.MAIN
 	anim.scale = Vector2.ONE * 0.3
 	anim.position = Vector2(576, 324)
+	jackpawt.visible = false
+	audio_player.stream = angel
+	sfx_tween_in(0.2)
 	anim.play("turning_cat")
 	await anim.animation_finished
+	await sfx_tween_out(0.05)
 	audio_player.stream = lever_sfx
 	sfx_tween_in(0.05)
 	anim.play("lever_cat")
@@ -113,7 +122,6 @@ func _turning_cat():
 	t.tween_property(debt_text_2, "offset_transform_position:y", -50., 0.7)
 	t.tween_property(debt_text_2, "modulate:a", 0.0, 0.3).set_delay(0.4)
 	await t.finished
-	sfx_tween_out(0.05)
 	await get_tree().create_timer(1.0).timeout
 
 func end_anim():
