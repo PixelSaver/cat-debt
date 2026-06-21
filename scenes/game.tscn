@@ -10,15 +10,13 @@
 [ext_resource type="Script" uid="uid://dc8pj8afuhk7n" path="res://scenes/mappy/map.gd" id="5_vtaks"]
 [ext_resource type="Script" uid="uid://bh7khxsci7ej6" path="res://scenes/path_2d.gd" id="6_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://dj16vkhwrn5to" path="res://scenes/entities/enemy.tscn" id="7_dinhu"]
-[ext_resource type="Script" uid="uid://cg7yv4tb4tol1" path="res://scenes/popup.gd" id="10_rysoc"]
 [ext_resource type="PackedScene" uid="uid://dw345li7k5rae" path="res://scenes/game/selection_popup.tscn" id="11_kvuet"]
-[ext_resource type="Texture2D" uid="uid://dwtxxijwcv4s1" path="res://assets/wheels/info_popup/panel1.png" id="11_ssvqc"]
-[ext_resource type="Texture2D" uid="uid://dkqnqipkcx116" path="res://assets/wheels/info_popup/panel2.png" id="12_264po"]
 [ext_resource type="Script" uid="uid://c4bg1pvcgpkom" path="res://scenes/tower_selection.gd" id="12_dinhu"]
 [ext_resource type="Script" uid="uid://cjxd1csle5q73" path="res://scenes/mappy/odds.gd" id="12_kvuet"]
 [ext_resource type="Script" uid="uid://bkk13dbfc3wqc" path="res://utilities/ui/menus/pay_button.gd" id="14_bhx41"]
 [ext_resource type="Script" uid="uid://c08501tuym1uv" path="res://scenes/wheels/wheelies.gd" id="14_pl11u"]
 [ext_resource type="Texture2D" uid="uid://du6uav32idug1" path="res://assets/wheels/popup/kaboomkablowripmygrannyshegothitbyabazooka.png" id="15_bhx41"]
+[ext_resource type="Script" uid="uid://blin1iuh35frg" path="res://scenes/wheel_price_text.gd" id="15_qnb83"]
 [ext_resource type="Texture2D" uid="uid://ctsbvloq15oue" path="res://assets/wheels/popup/spin.png" id="16_qnb83"]
 [ext_resource type="Texture2D" uid="uid://blqu5x1gujjwv" path="res://assets/wheels/popup/that.png" id="17_sww3w"]
 [ext_resource type="Texture2D" uid="uid://5egucrk6xwgr" path="res://assets/wheels/popup/wheel.png" id="18_suyxu"]
@@ -352,6 +350,7 @@ text = "[font top=-40 bt=-5]WHEEL
 [font top=-30 bt=-5][font_size=50]COSTS r1000
 "
 vertical_alignment = 1
+script = ExtResource("15_qnb83")
 
 [node name="WheelCont" type="Control" parent="UI" unique_id=1703027372]
 layout_mode = 3
