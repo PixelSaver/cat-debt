@@ -5,7 +5,7 @@ class_name EnemyInfo
 static var stats := {
 	
 	"fly" : {
-		"strength" : 1.0,
+		"strength" : 5,
 		"health" : 1.0,
 		"speed" : 1.0,
 		"drop_price" : 300.0,
@@ -13,7 +13,7 @@ static var stats := {
 	},
 	
 	"beetle" : {
-		"strength" : 2.0,
+		"strength" : 10,
 		"health" : 2.0,
 		"speed" : 1.2,
 		"drop_price" : 1000.0,
@@ -21,7 +21,7 @@ static var stats := {
 	},
 	
 	"blob" : {
-		"strength" : 4.0,
+		"strength" : 15,
 		"health" : 5.0,
 		"speed" : 0.6,
 		"drop_price" : 5000.0,
