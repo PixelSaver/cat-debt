@@ -16,6 +16,7 @@ func _on_pressed() -> void:
 	_t.set_trans(Tween.TRANS_QUINT).set_parallel(true)
 	_t.tween_property(self, "scale", Vector2.ONE*0.9, 0.08)
 	_t.tween_property(self, "scale", Vector2.ONE*1.1, 0.08).set_delay(0.08)
+	
 
 func _notification(what: int) -> void:
 	match what:
@@ -25,6 +26,7 @@ func _notification(what: int) -> void:
 			_unhover()
 
 func _hover() -> void:
+	owner.play_miau()
 	if t and t.is_running(): t.kill()
 	t = create_tween().set_ease(Tween.EASE_OUT)
 	t.set_trans(Tween.TRANS_QUINT).set_parallel(true)

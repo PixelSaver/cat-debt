@@ -6,6 +6,8 @@
 [ext_resource type="SpriteFrames" uid="uid://b72483g1q5yy6" path="res://assets/cat_sprite_frames.tres" id="3_rb0yt"]
 [ext_resource type="AudioStream" uid="uid://tsb37paepjjn" path="res://assets/sfx/vine-boom.mp3" id="4_gs5sn"]
 [ext_resource type="AudioStream" uid="uid://dbgqtcqy68v3p" path="res://assets/sfx/lever-pull-sound-effect.mp3" id="5_y4ydt"]
+[ext_resource type="AudioStream" uid="uid://kd0c02xbdc8k" path="res://assets/sfx/angel.mp3" id="6_cbpof"]
+[ext_resource type="Texture2D" uid="uid://dvv487bqceewp" path="res://assets/scene_1_cat_slotting/jackpawt.png" id="7_5ruw7"]
 
 [sub_resource type="AudioStreamMP3" id="AudioStreamMP3_j3pel"]
 
@@ -21,6 +23,7 @@ script = ExtResource("1_va6ap")
 slot_sfx = ExtResource("3_1uaq5")
 vine_boom = ExtResource("4_gs5sn")
 lever_sfx = ExtResource("5_y4ydt")
+angel = ExtResource("6_cbpof")
 metadata/_custom_type_script = "uid://e0s6oeo4pcwr"
 
 [node name="OddsText" type="RichTextLabel" parent="." unique_id=1133095575]
@@ -48,7 +51,7 @@ vertical_alignment = 1
 position = Vector2(520, 350)
 scale = Vector2(0.4, 0.4)
 sprite_frames = ExtResource("3_rb0yt")
-animation = &"lever_cat"
+animation = &"cut_scene"
 
 [node name="DebtText" type="RichTextLabel" parent="." unique_id=307731193]
 layout_mode = 1
@@ -94,6 +97,11 @@ fit_content = true
 scroll_active = false
 horizontal_alignment = 2
 vertical_alignment = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1116516666]
+position = Vector2(520, 352)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_5ruw7")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1996062019]
 stream = SubResource("AudioStreamMP3_j3pel")
