@@ -15,7 +15,7 @@ func get_odds():
 func set_odds(amount: int):
 	odds = clampi(amount, -100, 100)
 	self.text = "[color=red][font top=-30]" + str(odds) + "j WIN"
-	if odds <= -50:
+	if odds <= -50:$"../../Wheel/MarginContainer/HBoxContainer/WinrateButton/Text"
 		print("LOST")
 		SignalBus.lose.emit()
 	elif odds == 100:

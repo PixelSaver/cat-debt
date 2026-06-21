@@ -276,7 +276,7 @@ theme_override_constants/separation = 27
 
 [node name="Wheel" type="Control" parent="UI" unique_id=2006010629]
 layout_mode = 3
-anchor_left = 0.781
+anchor_left = 0.65
 anchor_top = 0.852
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -295,15 +295,38 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 30
 
-[node name="WheelButton" parent="UI/Wheel/MarginContainer" unique_id=1152125449 instance=ExtResource("5_iywne")]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Wheel/MarginContainer" unique_id=1696836613]
 layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="WinrateButton" parent="UI/Wheel/MarginContainer/HBoxContainer" unique_id=1368060868 instance=ExtResource("5_iywne")]
+layout_mode = 2
+size_flags_horizontal = 3
 script = ExtResource("14_bhx41")
 price = 1000
 
-[node name="Panel" parent="UI/Wheel/MarginContainer/WheelButton" index="0" unique_id=1586527438]
+[node name="Panel" parent="UI/Wheel/MarginContainer/HBoxContainer/WinrateButton" index="0" unique_id=1586527438]
 theme_override_styles/panel = SubResource("StyleBoxFlat_pl11u")
 
-[node name="Text" parent="UI/Wheel/MarginContainer/WheelButton" index="1" unique_id=1745176857]
+[node name="Text" parent="UI/Wheel/MarginContainer/HBoxContainer/WinrateButton" index="1" unique_id=1745176857]
+anchors_preset = 15
+anchor_bottom = 1.0
+text = "[font top=-15 bt=-5][font_size=70]WINRATE
+[font top=-30 bt=-5][font_size=50]COSTS [color=red]r1000"
+script = ExtResource("15_qnb83")
+
+[node name="WheelButton" parent="UI/Wheel/MarginContainer/HBoxContainer" unique_id=1152125449 instance=ExtResource("5_iywne")]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("14_bhx41")
+price = 1000
+
+[node name="Panel" parent="UI/Wheel/MarginContainer/HBoxContainer/WheelButton" index="0" unique_id=1586527438]
+theme_override_styles/panel = SubResource("StyleBoxFlat_pl11u")
+
+[node name="Text" parent="UI/Wheel/MarginContainer/HBoxContainer/WheelButton" index="1" unique_id=1745176857]
+anchors_preset = 15
+anchor_bottom = 1.0
 text = "[font top=-40 bt=-5]WHEEL
 [font top=-30 bt=-5][font_size=50]COSTS r1000
 "
@@ -415,4 +438,5 @@ texture = ExtResource("29_suyxu")
 
 [connection signal="win_rate_changed" from="." to="UI/WinRateCont/WinRateText" method="_on_game_win_rate_changed"]
 
-[editable path="UI/Wheel/MarginContainer/WheelButton"]
+[editable path="UI/Wheel/MarginContainer/HBoxContainer/WinrateButton"]
+[editable path="UI/Wheel/MarginContainer/HBoxContainer/WheelButton"]
