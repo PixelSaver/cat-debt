@@ -21,6 +21,10 @@ func start_anim():
 	await _anim_pain()
 	Global.menu_manager.transition_to_scene(START_MENU)
 
+func end_anim():
+	Global.menu_manager.toggle_music(true)
+	queue_free()
+
 func _anim_pain():
 	anim.play("cut_scene")
 	audio_player1.stream = happy
