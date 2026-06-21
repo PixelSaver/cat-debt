@@ -14,7 +14,7 @@ func _ready() -> void:
 func _draw() -> void:
 	draw_circle(Vector2.ZERO, 7., Color.BLACK, true)
 
-func bullet_init(enemy:Enemy, spd:float, dmg:float, initial_push:float=0.0):
+func bullet_init(enemy:Enemy, spd:float, dmg:float, age:float):
 	var pos = global_position
 	speed = spd
 	damage = dmg
@@ -24,6 +24,7 @@ func bullet_init(enemy:Enemy, spd:float, dmg:float, initial_push:float=0.0):
 	await get_tree().process_frame
 	self.top_level = true
 	self.global_position = pos
+	self.global_position += last_dir * speed * age * 30.0
 
 func _physics_process(delta: float) -> void:
 	if not speed or not damage: return

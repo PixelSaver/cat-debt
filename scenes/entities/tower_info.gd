@@ -12,7 +12,7 @@ static var stats := {
 	TowerType.LOW : {
 		"name": "Low Tier",
 		"damage": 1.0,
-		"attack_cooldown": 0.5,
+		"attack_cooldown": 0.01,
 		"bullet_speed": 10.,
 		"range": 200.0,
 		"upgrade_price": 1000,
@@ -22,7 +22,7 @@ static var stats := {
 	TowerType.MID : {
 		"name": "Mid Tier",
 		"damage": 1.5,
-		"attack_cooldown": 0.3,
+		"attack_cooldown": 0.01,
 		"bullet_speed": 15.,
 		"range": 250.0,
 		"upgrade_price": 2500,
@@ -32,7 +32,7 @@ static var stats := {
 	TowerType.HIGH : {
 		"name": "High Tier",
 		"damage": 2.0,
-		"attack_cooldown": 0.2,
+		"attack_cooldown": 0.01,
 		"bullet_speed": 20.,
 		"range": 400.0,
 		"upgrade_price": 5200,
@@ -48,7 +48,7 @@ static func get_level_stats(type:TowerType, level:int) -> Dictionary:
 		"damage": stats[type]["damage"] *\
 			exp(level * .15),
 		"attack_cooldown": stats[type]["attack_cooldown"] /\
-			exp(level * .15),
+			exp(level * .05),
 		"bullet_speed": stats[type]["bullet_speed"] *\
 			exp(level * .15),
 		"range": stats[type]["range"] *\
