@@ -2,15 +2,33 @@
 
 [ext_resource type="Script" uid="uid://cu2rmirswj7bb" path="res://scenes/entities/enemy.gd" id="1_d7j71"]
 [ext_resource type="Script" uid="uid://fj7ykktocnh6" path="res://utilities/health_component.gd" id="2_67neu"]
-[ext_resource type="Texture2D" uid="uid://crc5jtv6eqp58" path="res://assets/lil_guys/fly.png" id="3_jr1g6"]
-[ext_resource type="Texture2D" uid="uid://dcq2ua5e2i5kf" path="res://assets/lil_guys/mosquito.png" id="4_hlb8m"]
-[ext_resource type="Texture2D" uid="uid://d3r4if2sw3g2b" path="res://assets/lil_guys/spidey.png" id="5_jr1g6"]
+[ext_resource type="Texture2D" uid="uid://dctfnnhcrlprr" path="res://assets/map/enemy3/Untitled_Artwork-1 6.png" id="3_wqw0c"]
+[ext_resource type="Texture2D" uid="uid://075v3brx2pha" path="res://assets/map/enemy3/Untitled_Artwork-2 6.png" id="4_onntj"]
+[ext_resource type="Texture2D" uid="uid://shc5egllk56j" path="res://assets/map/enemy3/Untitled_Artwork-3 6.png" id="5_h7bdk"]
+[ext_resource type="Texture2D" uid="uid://bgevqsutaq3cc" path="res://assets/map/enemy3/Untitled_Artwork-4 5.png" id="6_1kl1a"]
+[ext_resource type="Texture2D" uid="uid://k2ww3db1liq7" path="res://assets/map/enemy2/Untitled_Artwork-1 5.png" id="7_14tws"]
+[ext_resource type="Texture2D" uid="uid://c72r1xfc42msy" path="res://assets/map/enemy2/Untitled_Artwork-2 5.png" id="8_owm76"]
+[ext_resource type="Texture2D" uid="uid://bhv5uaf576k1" path="res://assets/map/enemy2/Untitled_Artwork-3 5.png" id="9_fkgbd"]
+[ext_resource type="Texture2D" uid="uid://c02gmcfsbsl3k" path="res://assets/map/enemy2/Untitled_Artwork-4.png" id="10_pt174"]
+[ext_resource type="Texture2D" uid="uid://yaw7d814l8xq" path="res://assets/map/enemy1/Untitled_Artwork-1 5.png" id="11_2ynut"]
+[ext_resource type="Texture2D" uid="uid://d3ow5sjp8ofs0" path="res://assets/map/enemy1/Untitled_Artwork-2 5.png" id="12_nv3ol"]
+[ext_resource type="Texture2D" uid="uid://b6hd6lo6mbdwp" path="res://assets/map/enemy1/Untitled_Artwork-3 5.png" id="13_td7os"]
+[ext_resource type="Texture2D" uid="uid://dg3nyicips0f7" path="res://assets/map/enemy1/Untitled_Artwork-4.png" id="14_2wkw8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_43hlm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_jr1g6")
+"texture": ExtResource("3_wqw0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_onntj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h7bdk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1kl1a")
 }],
 "loop": 1,
 "name": &"fly",
@@ -18,7 +36,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_hlb8m")
+"texture": ExtResource("7_14tws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_owm76")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fkgbd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_pt174")
 }],
 "loop": 1,
 "name": &"mosquito",
@@ -26,7 +53,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_jr1g6")
+"texture": ExtResource("11_2ynut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_nv3ol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_td7os")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_2wkw8")
 }],
 "loop": 1,
 "name": &"spidey",
@@ -50,10 +86,10 @@ script = ExtResource("2_67neu")
 metadata/_custom_type_script = "uid://fj7ykktocnh6"
 
 [node name="Anim" type="AnimatedSprite2D" parent="." unique_id=1045301312]
-position = Vector2(0, -1)
+position = Vector2(1.9073486e-06, 3.0000005)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_43hlm")
-animation = &"fly"
+animation = &"mosquito"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1358334586]
 shape = SubResource("CircleShape2D_gkedh")
