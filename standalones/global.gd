@@ -1,6 +1,5 @@
 extends Node
 
-signal state_changed(new_state: States)
 
 enum States {
 	START,
