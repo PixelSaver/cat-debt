@@ -18,7 +18,8 @@ var slots = [
 func _ready() -> void:
 	$gambler.hide()
 	$spikey.hide()
-	babang()
+	await babang()
+	spin_to_win()
 	
 func babang() -> void:
 	
@@ -62,25 +63,35 @@ func pop_in_tween(part: Node2D, duration : float = 0.8) -> void:
 	
 	
 func spin_to_win():
+	
 	var to_be_rotated = randf()*360*2 + 360*2
 	var to_be_finally = wheelfr.rotation_degrees + to_be_rotated
+	#position.y+=1000
 	$gambler.show()	
+	
+	#var bounce := create_tween()
+	#bounce.set_trans(Tween.TRANS_ELASTIC)
+	#bounce.set_ease(Tween.EASE_OUT)
+	#bounce.tween_property(wheelfr, "position", Vector2.ZERO, 0.25)
+	#await bounce.finished
 
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.set_ease(Tween.EASE_OUT)
-	tween.tween_property(wheelfr, "rotation_degrees", to_be_finally, 2.0)
+	tween.tween_property(wheelfr, "rotation_degrees", to_be_finally, 3.0)
 
 	await tween.finished
 
 	print("landed on: ", get_landed_slot())
+	
 
 
 func get_landed_slot() -> String:
-	var angle = 360%wheelfr.rotation_degrees
+	var angle = fmod(wheelfr.rotation_degrees, 360.0)
 
 	for slot in slots:
 		if angle >= slot["start"] and angle < slot["end"]:
 			return slot["name"]
+			
 
 	return "unknown"
