@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var overlay: ColorRect = $"../overlay"
 @onready var bg = $spikey/bg
 @onready var spin_word = $spikey/words/spin
 @onready var that_word = $spikey/words/that
@@ -9,6 +10,8 @@ extends Node2D
 @onready var result_label = $ResultInfo/ResultLabel
 @onready var tick = $gambler/tick
 var last_tick_index := -1
+var prev_game_state : Global.States
+var is_finished := false
 
 var slots = [
 	{"name": "+1", "start": 0.0, "end": 72.0*1},
@@ -23,9 +26,26 @@ func _ready() -> void:
 	$gambler.hide()
 	$spikey.hide()
 	$ResultInfo.hide()
+	self.global_position = get_viewport_rect().size/2.
+	SignalBus.wheel_time.connect(_on_wheel_time)
+	_reset()
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("s"):
+		SignalBus.wheel_time.emit()
+
+func _reset():
+	overlay.hide()
+	self.hide()
+	is_finished = false
+
+func _on_wheel_time() -> void:
+	self.show()
+	overlay.show()
 	await babang()
 	spin_to_win()
-	
+
+## SPIN THAT WEEEEEHL intro scene
 func babang() -> void:
 	
 	$spikey.show()
@@ -72,7 +92,7 @@ func spin_to_win():
 	var to_be_rotated = randf()*360*2 + 360*2
 	var to_be_finally = wheelfr.rotation_degrees + to_be_rotated
 	#position.y+=1000
-	$gambler.show()	
+	$gambler.show()
 	
 	#var bounce := create_tween()
 	#bounce.set_trans(Tween.TRANS_ELASTIC)
@@ -118,7 +138,9 @@ func spin_to_win():
 
 			SignalBus.lose_tower.emit()
 
-
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("l_click") and is_finished:
+		_reset()
 
 func get_landed_slot() -> String:
 	var angle = fmod(wheelfr.rotation_degrees, 360.0)
@@ -148,6 +170,11 @@ func show_result(text: String):
 
 	tween.parallel().tween_property(result_panel,"scale",Vector2.ONE,0.25).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	tween.parallel().tween_property(result_label,"modulate:a",1.0,0.15)
+	
+	is_finished = true
+	await get_tree().create_timer(2.0).timeout
+	if is_finished:
+		_reset()
 
 func get_slot_index() -> int:
 	var angle = fposmod(wheelfr.rotation_degrees, 360.0)
