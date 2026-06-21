@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://dw345li7k5rae"]
+
+[ext_resource type="Script" uid="uid://c428dkggiordt" path="res://scenes/selection_popup.gd" id="1_f10om"]
+[ext_resource type="Theme" uid="uid://djxds56cenfds" path="res://assets/default_theme.tres" id="1_qae8y"]
+[ext_resource type="PackedScene" uid="uid://bk1srw633oqx8" path="res://utilities/ui/menus/default_button.tscn" id="3_mxn1s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dinhu"]
+bg_color = Color(1, 1, 1, 0.7607843)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Popup" type="Panel" unique_id=1696633443 node_paths=PackedStringArray("but")]
+custom_minimum_size = Vector2(180, 120)
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_qae8y")
+theme_override_styles/panel = SubResource("StyleBoxFlat_dinhu")
+script = ExtResource("1_f10om")
+but = NodePath("VBoxContainer/ButtonCont/DefaultButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1827550476]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="VBoxContainer" unique_id=1785461987]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[font top=-15 bt=-5]LEVEL 1"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="ButtonCont" type="MarginContainer" parent="VBoxContainer" unique_id=933435393]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="DefaultButton" parent="VBoxContainer/ButtonCont" unique_id=418678843 instance=ExtResource("3_mxn1s")]
+custom_minimum_size = Vector2(120, 65)
+layout_mode = 2
+
+[node name="Text" parent="VBoxContainer/ButtonCont/DefaultButton" index="1" unique_id=1745176857]
+anchors_preset = 15
+anchor_bottom = 1.0
+theme_override_font_sizes/normal_font_size = 50
+text = "[font top=-20 bt=-20]UPGRADE
+2 COINS"
+vertical_alignment = 1
+
+[editable path="VBoxContainer/ButtonCont/DefaultButton"]
