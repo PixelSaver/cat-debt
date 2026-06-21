@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b0deg5aeh3k61"]
 
-[ext_resource type="Script" uid="uid://dy04d26r3num8" path="res://scenes/lose_cutscene.gd" id="1_u213a"]
+[ext_resource type="Script" uid="uid://dy04d26r3num8" path="res://scenes/cutscenes/lose_cutscene.gd" id="1_u213a"]
 [ext_resource type="Texture2D" uid="uid://bo6034lxaq5dx" path="res://assets/lose_scene/frame_01.png" id="2_h7707"]
 [ext_resource type="AudioStream" uid="uid://klbmt373cxdl" path="res://assets/sfx/sad-meow-song.mp3" id="2_mxkxl"]
 [ext_resource type="AudioStream" uid="uid://tsb37paepjjn" path="res://assets/sfx/vine-boom.mp3" id="3_4c0st"]
@@ -48,11 +48,40 @@
 [ext_resource type="Texture2D" uid="uid://bbuq3fngyyp57" path="res://assets/lose_scene/frame_43.png" id="44_1al67"]
 [ext_resource type="Texture2D" uid="uid://du74wi044hlct" path="res://assets/lose_scene/frame_44.png" id="45_ueclg"]
 [ext_resource type="Theme" uid="uid://djxds56cenfds" path="res://assets/default_theme.tres" id="47_nlpct"]
-[ext_resource type="Script" uid="uid://cjxd1csle5q73" path="res://scenes/mappy/odds.gd" id="48_4c0st"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_beg7u"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_4pu3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_j5yga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_yr65n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_81wfo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_183jw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_24fof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_7f6q4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_4eqey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_3yfo8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_1dxmy")
+}, {
 "duration": 1.0,
 "texture": ExtResource("18_4pu3b")
 }, {
@@ -92,9 +121,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("30_bgb2c")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"cat_down2",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -142,9 +171,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("45_ueclg")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"cat_down3",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 7.0,
@@ -215,7 +244,7 @@ vine_boom = ExtResource("3_4c0st")
 position = Vector2(805.49994, 372.99994)
 scale = Vector2(0.39661455, 0.39999995)
 sprite_frames = SubResource("SpriteFrames_beg7u")
-animation = &"cat_down3"
+animation = &"cat_down2"
 
 [node name="SadText" type="RichTextLabel" parent="." unique_id=237223183]
 custom_minimum_size = Vector2(250, 0)
@@ -236,7 +265,6 @@ bbcode_enabled = true
 text = "YOU LET ME DOWN"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("48_4c0st")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1950730558]
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dfpb1ipm31d1k"]
 
 [ext_resource type="Theme" uid="uid://djxds56cenfds" path="res://assets/default_theme.tres" id="1_o7wu3"]
-[ext_resource type="Script" uid="uid://cxcy6i058sv3l" path="res://scenes/beginning_cutscene.gd" id="1_va6ap"]
+[ext_resource type="Script" uid="uid://cxcy6i058sv3l" path="res://scenes/cutscenes/beginning_cutscene.gd" id="1_va6ap"]
 [ext_resource type="AudioStream" uid="uid://bqbc7unvoa1u" path="res://assets/sfx/slotmachine.mp3" id="3_1uaq5"]
 [ext_resource type="SpriteFrames" uid="uid://b72483g1q5yy6" path="res://assets/cat_sprite_frames.tres" id="3_rb0yt"]
 [ext_resource type="AudioStream" uid="uid://tsb37paepjjn" path="res://assets/sfx/vine-boom.mp3" id="4_gs5sn"]
