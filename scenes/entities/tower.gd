@@ -31,7 +31,6 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> vo
 	#print(event.to_string())
 	if event.is_action_pressed("l_click") and Input.is_action_just_pressed("l_click"):
 		Global.select_tower(self, Global.SelectionType.INFO)
-		print("Pressed tower %s" % Global.selected_tower)
 		pass
 
 func _process(delta: float) -> void:

@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://dc8pj8afuhk7n" path="res://scenes/mappy/map.gd" id="5_vtaks"]
 [ext_resource type="Script" uid="uid://bh7khxsci7ej6" path="res://scenes/path_2d.gd" id="6_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://dj16vkhwrn5to" path="res://scenes/entities/enemy.tscn" id="7_dinhu"]
+[ext_resource type="Script" uid="uid://c428dkggiordt" path="res://scenes/selection_popup.gd" id="11_kvuet"]
 [ext_resource type="Script" uid="uid://c4bg1pvcgpkom" path="res://scenes/tower_selection.gd" id="12_dinhu"]
 [ext_resource type="Script" uid="uid://cjxd1csle5q73" path="res://scenes/mappy/odds.gd" id="12_kvuet"]
 
@@ -128,6 +129,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_dinhu")
+script = ExtResource("11_kvuet")
 
 [node name="TowerButtonCont" type="HBoxContainer" parent="UI" unique_id=790972568]
 anchors_preset = -1
