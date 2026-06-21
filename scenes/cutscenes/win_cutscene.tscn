@@ -229,7 +229,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="LoseScene" type="Control" unique_id=1867390076]
+[node name="Win" type="Control" unique_id=1867390076]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
