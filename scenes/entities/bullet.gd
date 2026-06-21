@@ -11,6 +11,9 @@ func _ready() -> void:
 	self.set_collision_mask_value(1, false)
 	self.set_collision_mask_value(2, true)
 
+func _draw() -> void:
+	draw_circle(Vector2.ZERO, 10., Color.BLACK, true)
+
 func bullet_init(enemy:Enemy, spd:float, dmg:float, initial_push:float=0.0):
 	speed = spd
 	damage = dmg

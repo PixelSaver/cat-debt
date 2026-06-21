@@ -15,8 +15,9 @@ static var stats := {
 		"attack_cooldown": 0.5,
 		"bullet_speed": 10.,
 		"range": 200.0,
-		"upgrade_price": 3
-		#"icon" : preload,
+		"upgrade_price": 3,
+		"animation": "low",
+		"offset": Vector2(27, 146),
 	},
 	TowerType.MID : {
 		"name": "Mid Tier",
@@ -24,8 +25,9 @@ static var stats := {
 		"attack_cooldown": 0.3,
 		"bullet_speed": 15.,
 		"range": 250.0,
-		"upgrade_price": 10
-		#"icon" : preload,
+		"upgrade_price": 10,
+		"animation": "mid",
+		"offset": Vector2(149, 146),
 	},
 	TowerType.HIGH : {
 		"name": "High Tier",
@@ -33,8 +35,9 @@ static var stats := {
 		"attack_cooldown": 0.2,
 		"bullet_speed": 20.,
 		"range": 400.0,
-		"upgrade_price": 25
-		#"icon" : preload,
+		"upgrade_price": 25,
+		"animation": "high",
+		"offset": Vector2(-90, 136),
 	}
 }
 
@@ -52,4 +55,6 @@ static func get_level_stats(type:TowerType, level:int) -> Dictionary:
 			exp(level * .3),
 		"upgrade_price": stats[type]["upgrade_price"] *\
 			exp(level * .3),
+		"animation": stats[type]["animation"],
+		"offset": stats[type]["offset"],
 	}

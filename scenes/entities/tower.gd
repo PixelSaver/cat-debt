@@ -9,6 +9,7 @@ var placed := false
 var popupped := false
 @export var range_color := Color(0.302, 0.651, 0.804, 0.349)
 @export var range_color_error := Color(0.922, 0.431, 0.435, 0.337)
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 var range_shown := false
 var enemies_in_range: Array[Enemy] = []
 var INFO = TowerInfo.stats
@@ -30,7 +31,7 @@ func _draw() -> void:
 		elif popupped or placed: col = range_color
 		else: col = range_color_error
 		draw_circle(Vector2.ZERO, _get_stats()["range"], col)
-	draw_circle(Vector2.ZERO, 40, Color.AQUAMARINE)
+	#draw_circle(Vector2.ZERO, 40, Color.AQUAMARINE)
 
 func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	#print(event.to_string())
@@ -64,6 +65,8 @@ func _process(delta: float) -> void:
 		else:
 			#cumulative_timer = 0.0
 			pass
+		sprite.animation = stats["animation"]
+		sprite.position = stats["offset"]
 	queue_redraw()
 
 func _update_in_range() -> void:

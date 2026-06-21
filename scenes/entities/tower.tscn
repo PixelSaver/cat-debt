@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cecb5i5yt2g0g"]
 
 [ext_resource type="Script" uid="uid://s0ohv87eh72w" path="res://scenes/entities/tower.gd" id="1_6ini6"]
+[ext_resource type="SpriteFrames" uid="uid://vk7yxil74i3b" path="res://assets/tower_sprite_frames.tres" id="2_lq4cm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gkedh"]
 radius = 40.0
@@ -19,3 +20,10 @@ metadata/_custom_type_script = "uid://s0ohv87eh72w"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=76641218]
 shape = SubResource("CircleShape2D_gkedh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1076334705]
+position = Vector2(-90, 136)
+scale = Vector2(0.25, 0.25)
+sprite_frames = ExtResource("2_lq4cm")
+animation = &"high"
+frame_progress = 0.81896454
