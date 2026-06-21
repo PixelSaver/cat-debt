@@ -12,9 +12,12 @@ func _ready() -> void:
 func open_popup() -> void:
 	self.show()
 	t = Global.selected_tower
+	t.popupped = true
 func close_popup() -> void:
 	self.hide()
+	t.popupped = false
 	t = null
+	
 
 func _unhandled_input(event: InputEvent):
 	if visible and event is InputEventMouseButton and event.pressed:

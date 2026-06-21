@@ -4,6 +4,9 @@ const BULLET = preload("res://scenes/entities/bullet.tscn")
 
 var placeable := false
 var placed := false
+## bool for when popup is selecting the tower 
+## becuase global somehow turns it to null in two frames >:(
+var popupped := false
 @export var range_color := Color(0.302, 0.651, 0.804, 0.349)
 @export var range_color_error := Color(0.922, 0.431, 0.435, 0.337)
 var range_shown := false
@@ -24,6 +27,7 @@ func _draw() -> void:
 	if self.range_shown: 
 		var col
 		if not placed and placeable: col = range_color
+		elif popupped or placed: col = range_color
 		else: col = range_color_error
 		draw_circle(Vector2.ZERO, _get_stats()["range"], col)
 	draw_circle(Vector2.ZERO, 40, Color.AQUAMARINE)
@@ -32,10 +36,6 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> vo
 	#print(event.to_string())
 	if event.is_action_pressed("l_click") and Input.is_action_just_pressed("l_click"):
 		Global.select_tower(self, Global.SelectionType.INFO)
-		print("YAYAYA SELECTED%s" % Global.selected_tower)
-		await get_tree().process_frame
-		await get_tree().process_frame
-		await get_tree().process_frame
 		print("YAYAYA SELECTED%s" % Global.selected_tower)
 		pass
 
@@ -46,7 +46,7 @@ func _process(delta: float) -> void:
 	if not placed:
 		self.range_shown = true
 	else:
-		self.range_shown = true if Global.selected_tower == self else false
+		self.range_shown = true if Global.selected_tower == self or popupped else false
 		var stats = _get_stats()
 		var cooldown = stats["attack_cooldown"]
 		if not cooldown: push_error("Attack cooldown doesn't exist in tower type")

@@ -15,8 +15,6 @@ can_sleep = false
 lock_rotation = true
 linear_damp = 20.0
 script = ExtResource("1_6ini6")
-range_color = null
-range_color_error = null
 metadata/_custom_type_script = "uid://s0ohv87eh72w"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=76641218]
