@@ -11,6 +11,7 @@ enum TowerType {
 static var stats := {
 	
 	TowerType.LOW : {
+		"name": "Low Tier",
 		"damage": 1.0,
 		"attack_cooldown": 0.5,
 		"bullet_speed": 10.,
@@ -19,6 +20,7 @@ static var stats := {
 	},
 	
 	TowerType.MID : {
+		"name": "Mid Tier",
 		"damage": 1.0,
 		"attack_cooldown": 0.1,
 		"bullet_speed": 15.,
@@ -27,6 +29,7 @@ static var stats := {
 	},
 	
 	TowerType.HIGH : {
+		"name": "High Tier",
 		"damage": 1.0,
 		"attack_cooldown": 0.1,
 		"bullet_speed": 10.,
