@@ -13,6 +13,7 @@ enum States {
 
 @export var slot_sfx: AudioStreamMP3
 @export var vine_boom: AudioStreamMP3
+@export var lever_sfx: AudioStreamMP3
 
 var cutscene_state : States = States.START
 const GAME = preload("res://scenes/game.tscn")
@@ -89,6 +90,11 @@ func _turning_cat():
 	anim.position = Vector2(576, 324)
 	anim.play("turning_cat")
 	await anim.animation_finished
+	audio_player.stream = lever_sfx
+	sfx_tween_in(0.05)
+	anim.play("lever_cat")
+	await anim.animation_finished
+	sfx_tween_out(0.05)
 	if t and t.is_running(): t.kill()
 	t = default_tween().set_trans(Tween.TRANS_CUBIC)
 	t.tween_property(anim, "scale", Vector2.ONE, 1.7)

@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bqbc7unvoa1u" path="res://assets/sfx/slotmachine.mp3" id="3_1uaq5"]
 [ext_resource type="SpriteFrames" uid="uid://b72483g1q5yy6" path="res://assets/cat_sprite_frames.tres" id="3_rb0yt"]
 [ext_resource type="AudioStream" uid="uid://tsb37paepjjn" path="res://assets/sfx/vine-boom.mp3" id="4_gs5sn"]
+[ext_resource type="AudioStream" uid="uid://dbgqtcqy68v3p" path="res://assets/sfx/lever-pull-sound-effect.mp3" id="5_y4ydt"]
 
 [sub_resource type="AudioStreamMP3" id="AudioStreamMP3_j3pel"]
 
@@ -19,6 +20,7 @@ theme = ExtResource("1_o7wu3")
 script = ExtResource("1_va6ap")
 slot_sfx = ExtResource("3_1uaq5")
 vine_boom = ExtResource("4_gs5sn")
+lever_sfx = ExtResource("5_y4ydt")
 metadata/_custom_type_script = "uid://e0s6oeo4pcwr"
 
 [node name="OddsText" type="RichTextLabel" parent="." unique_id=1133095575]
@@ -46,7 +48,7 @@ vertical_alignment = 1
 position = Vector2(520, 350)
 scale = Vector2(0.4, 0.4)
 sprite_frames = ExtResource("3_rb0yt")
-animation = &"turning_cat"
+animation = &"lever_cat"
 
 [node name="DebtText" type="RichTextLabel" parent="." unique_id=307731193]
 layout_mode = 1
