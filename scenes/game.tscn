@@ -147,7 +147,7 @@ script = ExtResource("10_rysoc")
 [node name="TutorialPanel" type="AnimatedSprite2D" parent="UI/Popup" unique_id=2054979937]
 position = Vector2(576, 324)
 scale = Vector2(1.731757, 1.2666707)
-sprite_frames = SubResource("SpriteFrames_43hlm")
+sprite_frames = SubResource("SpriteFrames_02fa5")
 autoplay = "default"
 frame_progress = 0.85039586
 
