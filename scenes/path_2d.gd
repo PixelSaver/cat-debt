@@ -1,7 +1,6 @@
 extends Path2D
 
 @export var enemy_scene: PackedScene
-var wave = Global.wave
 var speed := 100.0
 
 # Called when the node enters the scene tree for the first time.
@@ -21,13 +20,13 @@ func spawn_enemy(enemy_type: String = "fly") -> void:
 func wave_yo_hand():
 	while true:
 		await spawn_wave()
-		SignalBus.wave_finished.emit(wave)
-		wave += 1
-		speed += 67 * sqrt(wave)*0.67
+		SignalBus.wave_finished.emit(Global.wave)
+		Global.wave += 1
+		speed += 67 * sqrt(Global.wave)*0.67
 		await get_tree().create_timer(10.67).timeout
 		
 func spawn_wave() -> void:
-	for i in range(5+ceil(wave*1.67)):
+	for i in range(5+ceil(Global.wave*1.67)):
 		if randf() < 0.05:
 			spawn_enemy("blob")
 		elif randf() < 0.15:
