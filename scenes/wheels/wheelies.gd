@@ -10,7 +10,7 @@ extends Node2D
 @onready var result_label = $ResultInfo/ResultLabel
 @onready var tick = $gambler/tick
 var last_tick_index := -1
-var prev_game_state : Global.States
+var prev_map_state : Global.MapStates
 var is_finished := false
 
 var slots = [
@@ -32,6 +32,8 @@ func _process(_delta: float) -> void:
 		SignalBus.wheel_time.emit()
 
 func _reset():
+	#if prev_map_state: Global.map_state = prev_map_state
+	Global.map_state = Global.MapStates.PLAY
 	$gambler.hide()
 	$spikey.hide()
 	$ResultInfo.hide()
@@ -42,6 +44,9 @@ func _reset():
 	is_finished = false
 
 func _on_wheel_time() -> void:
+	if Global.map_state == Global.MapStates.WHEEL: return
+	prev_map_state = Global.map_state
+	Global.map_state = Global.MapStates.WHEEL
 	self.show()
 	overlay.show()
 	await babang()
