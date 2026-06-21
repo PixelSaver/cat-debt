@@ -30,8 +30,22 @@ animations = [{
 
 [node name="wheelies_canvas" type="CanvasLayer" unique_id=1826509710]
 
+[node name="overlay" type="ColorRect" parent="." unique_id=1208910434]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2697.0002
+offset_top = -1574.0001
+offset_right = -2697.0002
+offset_bottom = -1574.0001
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(1, 1, 1, 0.47100002)
+
 [node name="wheelies" type="Node2D" parent="." unique_id=2137489424]
-position = Vector2(537, 351)
 script = ExtResource("1_0x057")
 
 [node name="spikey" type="Node2D" parent="wheelies" unique_id=789617537]
