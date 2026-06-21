@@ -7,7 +7,6 @@ var placed := false
 @export var range_color := Color(0.302, 0.651, 0.804, 0.349)
 @export var range_color_error := Color(0.922, 0.431, 0.435, 0.337)
 var range_shown := false
-@onready var sprite: Sprite2D = $Sprite2D
 var enemies_in_range: Array[Enemy] = []
 var INFO = TowerInfo.stats
 var type : TowerInfo.TowerType = TowerInfo.TowerType.LOW
@@ -15,34 +14,34 @@ var cumulative_timer := 0.0
 
 func _ready() -> void:
 	self.lock_rotation = true
-	self.input_event.connect(_on_input_event)
+
 func _get_stats() -> Dictionary:
 	return INFO.get(type)
 
 func _draw() -> void:
 	#TODO tween the range radius :D
 	if self.range_shown: 
-		print("Range is: %s" % _get_stats()["range"])
 		var col
 		if not placed and placeable: col = range_color
 		else: col = range_color_error
 		draw_circle(Vector2.ZERO, _get_stats()["range"], col)
 	draw_circle(Vector2.ZERO, 40, Color.AQUAMARINE)
 
-func _on_input_event(_v:Viewport, event:InputEvent, _shape_idx:int) -> void:
+func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
+	#print(event.to_string())
 	if event.is_action_pressed("l_click") and Input.is_action_just_pressed("l_click"):
-		#Global.selected_tower = self
+		Global.select_tower(self, Global.SelectionType.INFO)
+		print("Pressed tower %s" % Global.selected_tower)
 		pass
 
 func _process(delta: float) -> void:
+	self.input_pickable = self.placed
+	
 	_update_in_range()
 	if not placed:
-		print("SHOWN")
 		self.range_shown = true
-		if self.placeable: sprite.modulate.a = 1.0
-		else: sprite.modulate.a = 0.7
 	else:
-		self.range_shown = false
+		self.range_shown = true if Global.selected_tower == self else false
 		var stats = _get_stats()
 		var cooldown = stats["attack_cooldown"]
 		if not cooldown: push_error("Attack cooldown doesn't exist in tower type")
@@ -67,9 +66,9 @@ func _update_in_range() -> void:
 	if Global.all_enemies.size() == 0:
 		return
 	var stats = _get_stats()
-	var range: float = stats["range"]
+	var _range: float = stats["range"] as float
 	for e in Global.all_enemies:
-		if e.global_position.distance_to(self.global_position) <= range:
+		if e.global_position.distance_to(self.global_position) <= _range:
 			if enemies_in_range.find(e) != -1: continue
 			enemies_in_range.append(e)
 

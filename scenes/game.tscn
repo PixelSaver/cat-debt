@@ -38,6 +38,15 @@ func set_curve_action() -> void:
 		target_path.curve.add_point(point)
 "
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dinhu"]
+bg_color = Color(1, 1, 1, 0.61960787)
+draw_center = false
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+
 [node name="Game" type="Control" unique_id=1894770430]
 layout_mode = 3
 anchors_preset = 15
@@ -45,7 +54,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 theme = ExtResource("1_yqjtg")
 script = ExtResource("1_uwrxv")
 metadata/_custom_type_script = "uid://e0s6oeo4pcwr"
@@ -61,7 +70,6 @@ offset_right = -2.0
 offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 texture = SubResource("AnimatedTexture_snxfc")
 expand_mode = 2
 
@@ -104,29 +112,6 @@ polygon = PackedVector2Array(-19, 126, 101, 26, 277, 26, 369, 114, 371, 252, 336
 [node name="UI" type="CanvasLayer" parent="." unique_id=659363911]
 script = ExtResource("5_p57ef")
 
-[node name="PlaceTowerUI" type="Control" parent="UI" unique_id=1497147418]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_right = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-theme = ExtResource("1_yqjtg")
-
-[node name="GridContainer" type="GridContainer" parent="UI/PlaceTowerUI" unique_id=420836559]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.6
-anchor_right = 0.4
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-columns = 2
-
 [node name="TowerSelection" type="Control" parent="UI" unique_id=1435858607]
 layout_mode = 3
 anchors_preset = 15
@@ -138,6 +123,12 @@ mouse_filter = 2
 theme = ExtResource("1_yqjtg")
 script = ExtResource("12_dinhu")
 
+[node name="Popup" type="Panel" parent="UI/TowerSelection" unique_id=165785451]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dinhu")
+
 [node name="TowerButtonCont" type="HBoxContainer" parent="UI" unique_id=790972568]
 anchors_preset = -1
 anchor_left = 0.02
@@ -146,6 +137,7 @@ anchor_right = 0.32
 anchor_bottom = 0.95
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("1_yqjtg")
 theme_override_constants/separation = 15
 
@@ -153,11 +145,13 @@ theme_override_constants/separation = 15
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 
 [node name="Tower2" parent="UI/TowerButtonCont" unique_id=1483575337 instance=ExtResource("5_iywne")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 
 [node name="WinRateCont" type="HBoxContainer" parent="UI" unique_id=1658304679]
 anchors_preset = -1
@@ -165,11 +159,13 @@ anchor_right = 1.0
 anchor_bottom = 0.12
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("1_yqjtg")
 
 [node name="Control" type="Control" parent="UI/WinRateCont" unique_id=1687099238]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="WinRateText" type="RichTextLabel" parent="UI/WinRateCont" unique_id=2072861405]
 custom_minimum_size = Vector2(250, 0)
@@ -189,12 +185,14 @@ anchor_right = 1.0
 anchor_bottom = 0.12
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("1_yqjtg")
 alignment = 1
 
 [node name="WaveLabel" type="RichTextLabel" parent="UI/Center" unique_id=1009730594]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+mouse_filter = 2
 bbcode_enabled = true
 text = "[font top=-20]WAVE ?"
 fit_content = true
