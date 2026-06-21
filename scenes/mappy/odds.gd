@@ -6,7 +6,7 @@ var t: Tween
 
 func _ready():
 	odds_text.scale = Vector2.ONE
-	odds_text.text = "0%"
+	odds_text.text = "0j WIN"
 	await get_tree().create_timer(1).timeout
 	inc_odds(10)
 
@@ -15,7 +15,7 @@ func get_odds():
 	
 func set_odds(amount: int):
 	odds = amount
-	odds_text.text = str(odds) + "%"
+	odds_text.text = str(odds) + "j WIN"
 
 func inc_odds(amount: int):
 	odds_text.scale = Vector2.ONE
@@ -26,7 +26,7 @@ func inc_odds(amount: int):
 	await t.finished
 	t = default_tween()
 	odds += amount
-	odds_text.text = str(odds) + "%"
+	odds_text.text = str(odds) + "j WIN"
 	t.tween_property(odds_text, "scale", Vector2.ONE, 0.2)
 	t.tween_property(odds_text, "position", Vector2(1012, 543), 0.2)
 	await t.finished
