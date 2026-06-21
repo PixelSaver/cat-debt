@@ -115,7 +115,7 @@ func end_anim():
 	await get_tree().create_timer(0.7).timeout
 	queue_free()
 	
-func sfx_tween_in(duration: int):
+func sfx_tween_in(duration: float):
 	var sfx_t: Tween = create_tween()
 	sfx_t.set_ease(Tween.EASE_OUT)
 	sfx_t.set_trans(Tween.TRANS_QUINT).set_parallel(true)
@@ -124,7 +124,7 @@ func sfx_tween_in(duration: int):
 	audio_player.play()
 	sfx_t.tween_property(audio_player, "volume_db", 0, duration)
 	
-func sfx_tween_out(duration: int):
+func sfx_tween_out(duration: float):
 	var sfx_t: Tween = create_tween()
 	sfx_t.set_ease(Tween.EASE_OUT)
 	sfx_t.set_trans(Tween.TRANS_QUINT).set_parallel(true)
