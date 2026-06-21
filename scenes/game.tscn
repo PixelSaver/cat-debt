@@ -19,9 +19,9 @@ frame_1/duration = 1.0
 
 [sub_resource type="Curve2D" id="Curve2D_kvuet"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -28, 189, 0, 0, 0, 0, 61, 106, 0, 0, 0, 0, 137, 57, 0, 0, 0, 0, 234, 61, 0, 0, 0, 0, 304, 109, 0, 0, 0, 0, 321, 225, 0, 0, 0, 0, 295, 321, 0, 0, 0, 0, 275, 403, 0, 0, 0, 0, 315, 436, 0, 0, 0, 0, 393, 481, 0, 0, 0, 0, 478, 548, 0, 0, 0, 0, 571, 556, 0, 0, 0, 0, 703, 477, 0, 0, 0, 0, 707, 413, 0, 0, 0, 0, 648, 377, 0, 0, 0, 0, 578, 334, 0, 0, 0, 0, 565, 262, 0, 0, 0, 0, 616, 196, 0, 0, 0, 0, 737, 165, 0, 0, 0, 0, 831, 181, 0, 0, 0, 0, 910, 248, 0, 0, 0, 0, 927, 330, 0, 0, 0, 0, 932, 419, 0, 0, 0, 0, 948, 479, 0, 0, 0, 0, 999, 525, 0, 0, 0, 0, 1066, 545, 0, 0, 0, 0, 1147, 533)
+"points": PackedVector2Array(0, 0, 0, 0, -28, 189, 0, 0, 0, 0, 61, 106, 0, 0, 0, 0, 137, 57, 0, 0, 0, 0, 234, 61, 0, 0, 0, 0, 304, 109, 0, 0, 0, 0, 321, 225, 0, 0, 0, 0, 295, 321, 0, 0, 0, 0, 275, 403, 0, 0, 0, 0, 315, 436, 0, 0, 0, 0, 393, 481, 0, 0, 0, 0, 478, 548, 0, 0, 0, 0, 571, 556, 0, 0, 0, 0, 653, 534, 0, 0, 0, 0, 703, 477, 0, 0, 0, 0, 704, 418, 0, 0, 0, 0, 648, 377, 0, 0, 0, 0, 578, 334, 0, 0, 0, 0, 565, 262, 0, 0, 0, 0, 616, 196, 0, 0, 0, 0, 737, 165, 0, 0, 0, 0, 831, 181, 0, 0, 0, 0, 910, 248, 0, 0, 0, 0, 927, 330, 0, 0, 0, 0, 932, 419, 0, 0, 0, 0, 948, 479, 0, 0, 0, 0, 999, 525, 0, 0, 0, 0, 1066, 545, 0, 0, 0, 0, 1147, 533)
 }
-point_count = 27
+point_count = 28
 
 [sub_resource type="GDScript" id="GDScript_gkedh"]
 script/source = "@tool
@@ -81,7 +81,7 @@ scale = Vector2(0.99999994, 1)
 
 [node name="Line2D" type="Line2D" parent="Map" unique_id=784722599 node_paths=PackedStringArray("target_path")]
 visible = false
-points = PackedVector2Array(-28, 189, 61, 106, 137, 57, 234, 61, 304, 109, 321, 225, 295, 321, 275, 403, 315, 436, 393, 481, 478, 548, 571, 556, 703, 477, 707, 413, 648, 377, 578, 334, 565, 262, 616, 196, 737, 165, 831, 181, 910, 248, 927, 330, 932, 419, 948, 479, 999, 525, 1066, 545, 1147, 533)
+points = PackedVector2Array(-28, 189, 61, 106, 137, 57, 234, 61, 304, 109, 321, 225, 295, 321, 275, 403, 315, 436, 393, 481, 478, 548, 571, 556, 653, 534, 703, 477, 704, 418, 648, 377, 578, 334, 565, 262, 616, 196, 737, 165, 831, 181, 910, 248, 927, 330, 932, 419, 948, 479, 999, 525, 1066, 545, 1147, 533)
 script = SubResource("GDScript_gkedh")
 target_path = NodePath("../Path2D")
 
@@ -102,6 +102,7 @@ polygon = PackedVector2Array(-19, 126, 101, 26, 277, 26, 369, 114, 371, 252, 336
 script = ExtResource("5_p57ef")
 
 [node name="PlaceTowerUI" type="Control" parent="UI" unique_id=1497147418]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -123,27 +124,27 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 2
 
-[node name="Tower" parent="UI/PlaceTowerUI/GridContainer" unique_id=418678843 instance=ExtResource("5_iywne")]
+[node name="TowerButtonCont" type="HBoxContainer" parent="UI" unique_id=790972568]
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.85
+anchor_right = 0.32
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_yqjtg")
+
+[node name="Tower1" parent="UI/TowerButtonCont" unique_id=418678843 instance=ExtResource("5_iywne")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Text" parent="UI/PlaceTowerUI/GridContainer/Tower" index="1" unique_id=1745176857]
+[node name="Text" parent="UI/TowerButtonCont/Tower1" index="1" unique_id=1745176857]
 text = "Tower"
 
-[node name="DefaultButton2" parent="UI/PlaceTowerUI/GridContainer" unique_id=1483575337 instance=ExtResource("5_iywne")]
+[node name="Tower2" parent="UI/TowerButtonCont" unique_id=1483575337 instance=ExtResource("5_iywne")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="DefaultButton3" parent="UI/PlaceTowerUI/GridContainer" unique_id=1701215580 instance=ExtResource("5_iywne")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="DefaultButton4" parent="UI/PlaceTowerUI/GridContainer" unique_id=1415291898 instance=ExtResource("5_iywne")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[editable path="UI/PlaceTowerUI/GridContainer/Tower"]
+[editable path="UI/TowerButtonCont/Tower1"]

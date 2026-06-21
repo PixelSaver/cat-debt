@@ -40,3 +40,5 @@ func register_enemy(enemy:Enemy):
 	enemy.tree_exiting.connect(func():
 		all_enemies.erase(enemy)
 	)
+
+var game_scene_ref: Game

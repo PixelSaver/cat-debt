@@ -39,7 +39,8 @@ func start_anim():
 	await _anim_slots()
 	await get_tree().create_timer(1.0).timeout
 	await _turning_cat()
-	Global.menu_manager.transition_to_scene(GAME)
+	if Global.state != Global.States.GAME:
+		Global.menu_manager.transition_to_scene(GAME)
 
 func _anim_slots():
 	self.cutscene_state = States.MAIN
@@ -92,3 +93,5 @@ func end_anim():
 	if t and t.is_running(): t.kill()
 	t = default_tween()
 	t.tween_property(self, "modulate:a", 0.0, 0.7)
+	await t.finished
+	queue_free()
