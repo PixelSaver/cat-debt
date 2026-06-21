@@ -31,6 +31,7 @@ func _ready():
 func end_cutscene() -> void:
 	print("To game")
 	Global.menu_manager.transition_to_scene(GAME)
+	Global.map_state = Global.MapStates.TUTORIAL 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("space"):
 		if cutscene_state != States.MAIN: return
