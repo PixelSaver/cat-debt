@@ -1,0 +1,59 @@
+extends Node2D
+
+@onready var bg = $spikey/bg
+@onready var spin_word = $spikey/words/spin
+@onready var that_word = $spikey/words/that
+@onready var wheel_word = $spikey/words/wheel
+@onready var wheelfr = $gambler/wheelfr
+
+var slots = [
+	{"name": "+1", "start": 0.0, "end": 72.0*1},
+	{"name": "nothing", "start": 72.0*1, "end": 72.0*2},
+	{"name": "-1", "start": 72.0*2 , "end": 72.0*3},
+	{"name": "+1", "start": 72.0*3, "end": 72.0*4},
+	{"name": "+2", "start": 72.0*4, "end": 72.0*4.5},
+	{"name": "-1", "start": 72.0*4.5, "end": 72.0*5},
+]
+
+func _ready() -> void:
+	$gambler.hide()
+	$spikey.hide()
+	babang()
+	
+func babang() -> void:
+	
+	$spikey.show()
+
+	var segments = [bg, spin_word, that_word, wheel_word]
+
+	for part in segments:
+		part.scale = Vector2.ZERO
+	#bg.scale = Vector2.ZERO
+	#segments[0].scale = Vector2.ZERO
+	#segments[1].scale = Vector2.ZERO
+	#segments[2].scale = Vector2(3,3)
+
+	await pop_in_tween(bg, 0.6)
+	
+	for part in segments:
+		await pop_in_tween(part)
+		await get_tree().create_timer(0.05).timeout
+		
+func pop_in_tween(part: Node2D, duration : float = 0.8) -> void:
+	var final_pos := part.position
+
+	#part.scale = Vector2.ZERO
+	#part.show()
+
+	var tween := create_tween()
+	tween.set_trans(Tween.TRANS_ELASTIC)
+	tween.set_ease(Tween.EASE_OUT)
+	tween.tween_property(part, "scale", Vector2.ONE, duration)
+
+	#await tween.finished
+	await get_tree().create_timer(0.1).timeout
+#func spin_to_win():
+		#var tween := create_tween()
+		#tween.set_trans(Tween.TRANS_ELASTIC)
+		#tween.set_ease(Tween.EASE_OUT)
+		#tween.tween_property(part, "scale", Vector2.ONE, duration)
