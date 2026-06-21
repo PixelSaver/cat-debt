@@ -42,13 +42,13 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> vo
 
 func _process(delta: float) -> void:
 	self.input_pickable = self.placed
+	var stats = _get_stats()
 	
 	_update_in_range()
 	if not placed:
 		self.range_shown = true
 	else:
 		self.range_shown = true if Global.selected_tower == self or popupped else false
-		var stats = _get_stats()
 		var cooldown = stats["attack_cooldown"]
 		if not cooldown: push_error("Attack cooldown doesn't exist in tower type")
 		if enemies_in_range.size() > 0 and enemies_in_range[0]:
@@ -65,8 +65,8 @@ func _process(delta: float) -> void:
 		else:
 			#cumulative_timer = 0.0
 			pass
-		sprite.animation = stats["animation"]
-		sprite.position = stats["offset"]
+	sprite.animation = stats["animation"]
+	sprite.position = stats["offset"]
 	queue_redraw()
 
 func _update_in_range() -> void:

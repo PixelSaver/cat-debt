@@ -77,12 +77,6 @@ curve = SubResource("Curve2D_kvuet")
 script = ExtResource("6_kvpfn")
 enemy_scene = ExtResource("7_dinhu")
 
-[node name="Enemy" parent="Map/Path2D" unique_id=1336611517 instance=ExtResource("7_dinhu")]
-visible = false
-position = Vector2(1149, 190)
-rotation = 0.8312376
-scale = Vector2(0.99999994, 1)
-
 [node name="Line2D" type="Line2D" parent="Map" unique_id=784722599 node_paths=PackedStringArray("target_path")]
 visible = false
 points = PackedVector2Array(-28, 189, 61, 106, 137, 57, 234, 61, 304, 109, 321, 225, 295, 321, 275, 403, 315, 436, 393, 481, 478, 548, 571, 556, 653, 534, 703, 477, 704, 418, 648, 377, 578, 334, 565, 262, 616, 196, 737, 165, 831, 181, 910, 248, 927, 330, 932, 419, 948, 479, 999, 525, 1066, 545, 1147, 533)
