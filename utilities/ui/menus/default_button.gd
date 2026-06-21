@@ -1,6 +1,7 @@
 extends Button
 class_name DefaultButton
 
+
 var t : Tween
 @onready var text_label: RichTextLabel = $Text
 

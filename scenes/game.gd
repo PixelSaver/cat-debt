@@ -8,18 +8,28 @@ var win_rate := 0 :
 		win_rate = val
 		win_rate_changed.emit(val)
 var tower_inventory: Array[TowerInfo.TowerType] = []
+var wheel_spins: int = 0
 const Type = TowerInfo.TowerType
 var weights = {
 	Type.LOW : 0.6,
 	Type.MID : 0.3,
 	Type.HIGH : 0.1,
 }
+var purrency: int = 1000
 
 func _ready() -> void:
 	Global.game_scene_ref = self
 	tower_inventory = [TowerInfo.TowerType.LOW]
+	SignalBus.wheel_time.connect(func():
+		wheel_spins += 1
+	)
 	#if OS.is_debug_build():
 		#add_towers_to_place(2)
+
+func pay(amount:int) -> void:
+	#TODO deferred for race conditions?
+	if amount > purrency: return
+	purrency -= amount
 
 func picked_at_index(idx:int) -> void:
 	if tower_inventory.size() == 0: return
