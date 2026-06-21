@@ -49,6 +49,8 @@ func _process(delta):
 	
 	if progression >= path.curve.get_baked_length():
 		queue_free()
+		SignalBus.change_odds.emit(-(INFO[type]["strength"]))
+		
 		
 ## func do damaage
 #    cat sanity -= INFO[type]["strength"]

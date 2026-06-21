@@ -1,7 +1,7 @@
 extends Path2D
 
 @export var enemy_scene: PackedScene
-var wave := 0
+var wave = Global.wave
 var speed := 100.0
 
 # Called when the node enters the scene tree for the first time.
