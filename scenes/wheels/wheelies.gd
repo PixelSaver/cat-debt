@@ -23,9 +23,6 @@ var slots = [
 ]
 
 func _ready() -> void:
-	$gambler.hide()
-	$spikey.hide()
-	$ResultInfo.hide()
 	self.global_position = get_viewport_rect().size/2.
 	SignalBus.wheel_time.connect(_on_wheel_time)
 	_reset()
@@ -35,6 +32,11 @@ func _process(_delta: float) -> void:
 		SignalBus.wheel_time.emit()
 
 func _reset():
+	$gambler.hide()
+	$spikey.hide()
+	$ResultInfo.hide()
+	$gambler/pointer.show()
+	wheelfr.scale = Vector2.ONE
 	overlay.hide()
 	self.hide()
 	is_finished = false
@@ -125,18 +127,20 @@ func spin_to_win():
 		"+2":
 			show_result("YOU WON TWO TOWERS!")
 			$ResultInfo/DuoCorrect.play()
+			Global.game_scene_ref.add_towers_to_place(2)
 		"+1":
 			show_result("YOU WON ONE TOWER!")
 			$ResultInfo/DuoCorrect.play()
+			Global.game_scene_ref.add_towers_to_place(1)
 		"nothing":
 			show_result("YOU WON ABSOLUTELY NOTHING!")
 			$ResultInfo/DuoWrong.play()
+			Global.game_scene_ref.add_towers_to_place(0)
 		"-1":
 			show_result("YOU GET TO LOSE A TOWER!")
 			$ResultInfo/DuoWrong.play()
-
-
 			SignalBus.lose_tower.emit()
+	
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("l_click") and is_finished:

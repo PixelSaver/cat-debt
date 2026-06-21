@@ -26,8 +26,10 @@ func picked_at_index(idx:int) -> void:
 	tower_inventory.remove_at(idx)
 
 func add_towers_to_place(num:int) -> void:
-	num = clampi(num, 1, 2)
+	num = clampi(num, 0, 2)
 	tower_inventory.clear()
+	if num == 0: return
+		
 	for i in range(num):
 		tower_inventory.append(get_random_tower_type(i))
 	print("Towers: %s" % str(tower_inventory))
