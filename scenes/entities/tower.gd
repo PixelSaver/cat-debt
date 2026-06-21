@@ -67,6 +67,7 @@ func _process(delta: float) -> void:
 			pass
 	sprite.animation = stats["animation"]
 	sprite.position = stats["offset"]
+	if not sprite.is_playing(): sprite.play(sprite.animation)
 	queue_redraw()
 
 func _update_in_range() -> void:
