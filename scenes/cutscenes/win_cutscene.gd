@@ -23,7 +23,9 @@ func _anim_pain():
 	anim.play("cut_scene")
 	audio_player1.stream = happy
 	sfx_tween_in(1, 0.05, -10)
-	
+	await get_tree().create_timer(3).timeout
+	t = default_tween()
+	t.tween_property(sad_text, "modulate:a", 1, 0.5) 
 	
 
 func sfx_tween_in(ap: int, duration: float, volume: int):
