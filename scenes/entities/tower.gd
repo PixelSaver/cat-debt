@@ -15,6 +15,7 @@ var cumulative_timer := 0.0
 
 func _ready() -> void:
 	self.lock_rotation = true
+	self.input_event.connect(_on_input_event)
 func _get_stats() -> Dictionary:
 	return INFO.get(type)
 
@@ -27,6 +28,11 @@ func _draw() -> void:
 		else: col = range_color_error
 		draw_circle(Vector2.ZERO, _get_stats()["range"], col)
 	draw_circle(Vector2.ZERO, 40, Color.AQUAMARINE)
+
+func _on_input_event(_v:Viewport, event:InputEvent, _shape_idx:int) -> void:
+	if event.is_action_pressed("l_click") and Input.is_action_just_pressed("l_click"):
+		#Global.selected_tower = self
+		pass
 
 func _process(delta: float) -> void:
 	_update_in_range()
