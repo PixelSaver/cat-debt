@@ -11,10 +11,10 @@
 [node name="wheelies_canvas" type="CanvasLayer" unique_id=1826509710]
 
 [node name="wheelies" type="Node2D" parent="." unique_id=2137489424]
-position = Vector2(576, 371)
 script = ExtResource("1_0x057")
 
 [node name="spikey" type="Node2D" parent="wheelies" unique_id=789617537]
+position = Vector2(25, 0)
 scale = Vector2(0.52, 0.52)
 
 [node name="bg" type="Sprite2D" parent="wheelies/spikey" unique_id=1725758351]
@@ -38,6 +38,6 @@ scale = Vector2(0.23999876, 0.23999876)
 texture = ExtResource("5_41rmo")
 
 [node name="pointer" type="Sprite2D" parent="wheelies/gambler" unique_id=1445508887]
-position = Vector2(0, -1019)
+position = Vector2(-8.333376, -1020.8387)
 rotation = 0.112182245
 texture = ExtResource("7_lhhr3")
