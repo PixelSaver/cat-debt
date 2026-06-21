@@ -31,3 +31,7 @@ func inc_odds(amount: int):
 	t.tween_property(odds_text, "position", Vector2(1012, 543), 0.2)
 	await t.finished
 	
+
+func _on_game_win_rate_changed(new_rate: float) -> void:
+	if new_rate > odds: inc_odds(new_rate-odds)
+	else: set_odds(new_rate)

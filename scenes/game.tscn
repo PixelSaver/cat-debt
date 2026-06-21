@@ -168,4 +168,6 @@ text = "[font top=-30]0j WIN"
 fit_content = true
 horizontal_alignment = 1
 
+[connection signal="win_rate_changed" from="." to="UI/OddsCont" method="_on_game_win_rate_changed"]
+
 [editable path="UI/TowerButtonCont/Tower1"]
